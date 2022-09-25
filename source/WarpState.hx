@@ -95,7 +95,11 @@ class WarpState extends MusicBeatState
 		add(pibemapa);
 
 		changeSelection();
-		super.create();
+		#if android
+		addVirtualPad(lEFT_RIGHT,_A_B);
+		#end	
+		
+			super.create();
 	}
 
 	var quieto:Bool = false;
