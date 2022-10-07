@@ -46,7 +46,25 @@ class MusicBeatState extends FlxUIState
 		controls.setVirtualPadUI(virtualPad, DPad, Action);
 		trackedinputsUI = controls.trackedinputsUI;
 		controls.trackedinputsUI = [];
-	}
+	
+if (PlayState.SONG.dodgeEnabled)
+                {
+                        _virtualpad = new FlxVirtualPad(NONE, A_B);
+                _virtualpad.alpha = 0.75;
+                        _virtualpad.cameras = [camcontrol];
+                        _virtualpad.visible = false;
+                add(_virtualpad);
+                }
+                else if (!PlayState.inhumanSong)
+                {
+                        _virtualpad = new FlxVirtualPad(NONE, B);
+                _virtualpad.alpha = 0.75;
+                        _virtualpad.cameras = [camcontrol];
+                        _virtualpad.visible = false;
+                add(_virtualpad);
+                }
+                #end
+}
 
 	public function removeVirtualPad()
 	{
