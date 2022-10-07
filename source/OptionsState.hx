@@ -71,7 +71,11 @@ class OptionsState extends MusicBeatState
 		}
 		changeSelection();
 
-		super.create();
+		#if android
+		addVirtualPad(UP_DOWN, A_B_C);
+		#end	
+		
+			super.create();
 	}
 
 	override function closeSubState() {
@@ -95,6 +99,15 @@ class OptionsState extends MusicBeatState
 			MusicBeatState.switchState(new MainMenuState());
 		}
 
+		#if android
+		if (virtualPad.buttonC.justPressed) {
+			#if android
+			removeVirtualPad();
+			#end	
+			MusicBeatState.switchState(new android.AndroidControlsSubState());
+		}		
+		#end	
+			
 		if (controls.ACCEPT) {
 			for (item in grpOptions.members) {
 				item.alpha = 0;
