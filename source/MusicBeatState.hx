@@ -47,7 +47,7 @@ class MusicBeatState extends FlxUIState
 		trackedinputsUI = controls.trackedinputsUI;
 		controls.trackedinputsUI = [];
 	
-if (PlayState.SONG.dodgeEnabled)
+                #if (PlayState.SONG.dodgeEnabled)
                 {
                         _virtualpad = new FlxVirtualPad(NONE, A_B);
                 _virtualpad.alpha = 0.75;
