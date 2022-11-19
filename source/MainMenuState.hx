@@ -358,7 +358,7 @@ class MainMenuState extends MusicBeatState
 
 		if(!smOpen)
 			{
-			 if (FlxG.keys.justPressed.C)
+			 if (FlxG.keys.justPressed.B)
 				{
 				smOpen = true;
 				FlxG.sound.play(Paths.sound('abrirsm'));
@@ -396,7 +396,7 @@ class MainMenuState extends MusicBeatState
 					}));
 				}
 			}
-			 if (FlxG.keys.justPressed.C)
+			 if (FlxG.keys.justPressed.B)
 				{
 				smOpen = false;
 				FlxG.sound.play(Paths.sound('abrirsm'));
