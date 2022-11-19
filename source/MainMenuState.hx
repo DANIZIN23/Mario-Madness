@@ -358,7 +358,7 @@ class MainMenuState extends MusicBeatState
 
 		if(!smOpen)
 			{
-			 if (FlxG.keys.justPressed.B)
+			 if (FlxG.keys.justPressed.B || virtualPad.buttonC.justPressed)
 				{
 				smOpen = true;
 				FlxG.sound.play(Paths.sound('abrirsm'));
