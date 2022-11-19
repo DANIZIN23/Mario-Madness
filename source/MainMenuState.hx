@@ -299,6 +299,18 @@ class MainMenuState extends MusicBeatState
 					});
 				}
 			}
+			
+			#if android
+		if (virtualPad.buttonC.justPressed) {
+			#if android
+			removeVirtualPad();
+			#end
+			MusicBeatState.switchState(new android.AndroidControlsSubState());
+		}
+		#end
+			
+			
+			
 			#if desktop
 			else if (FlxG.keys.justPressed.SEVEN && ClientPrefs.carPass)
 			{
