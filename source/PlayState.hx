@@ -265,6 +265,8 @@ class PlayState extends MusicBeatState
 	var lluvia:BGSprite;
 
 
+	var _vpad:FlxVirtualPad;
+	
 	public static var campaignScore:Int = 0;
 	public static var campaignMisses:Int = 0;
 	public static var seenCutscene:Bool = false;
@@ -1511,7 +1513,11 @@ class PlayState extends MusicBeatState
 	
                 #if android
 		addAndroidControls();
-		#end
+		androidControls.visible = true;
+	_vpad = new FlxVirtualPad(NONE, A);
+	_vpad.cameras = [camHUD];
+	this.add(_vpad);
+	#end
 			
 		// if (SONG.song == 'South')
 		// FlxG.camera.alpha = 0.7;
@@ -1893,9 +1899,7 @@ class PlayState extends MusicBeatState
 		var ret:Dynamic = callOnLuas('onStartCountdown', []);
 		if(ret != FunkinLua.Function_Stop) {
 			
-			#if android
-			androidControls.visible = true;
-			#end
+			
 				
 			generateStaticArrows(0);
 			generateStaticArrows(1);
@@ -2840,7 +2844,7 @@ class PlayState extends MusicBeatState
 		}
 		doDeathCheck();
 
-		if (controls.ACCEPT && !inCutscene && !endingSong && !isDodging && !canDodge && curStage == 'exeport'){ //PONELE MÁS REQUISITOS LA CTM
+		if (_vpad.buttonA.justPressed && !inCutscene && !endingSong && !isDodging && !canDodge && curStage == 'exeport'){ //PONELE MÁS REQUISITOS LA CTM
 			boyfriend.playAnim('dodge', true);
 			isDodging = true;
 			canDodge = true;
