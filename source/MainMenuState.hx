@@ -305,7 +305,7 @@ class MainMenuState extends MusicBeatState
 			#if android
 			removeVirtualPad();
 			#end
-			MusicBeatState.switchState(new android.AndroidControlsSubState());
+			MusicBeatState.switchState(new WarpState());
 		}
 		#end
 			
